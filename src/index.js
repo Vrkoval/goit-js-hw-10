@@ -58,3 +58,30 @@ function createMarkupForCountries(countriesArray) {
    .join('');
    return refs.listCountries.insertAdjacentHTML('beforeend', markup);
     }
+    function createCardForCountry(countriesArray) {
+        const markup = countriesArray
+        .map(({ name, capital, population, flags, languages }) => {
+            return`
+            <div class="country-header">
+        <img class="country-flag" src="${flags.svg}" alt="flags" width = "30" height = "20">
+            <h2 >${name.official}</h2> 
+            </div>            
+            <ul class="country-info">
+            <li class="country-item"> <b>Capital</b>:
+          <span class="country-span">${capital}</span>
+            </li>
+            <li class="country-item"> <b>Population</b>:
+          <span class="country-span">${population}</span>
+            </li>
+            <li class="country-item"> <b>Languages</b>:
+          <span class="country-span">${Object.values(languages).join(', ')}</span>
+            </li>
+        </ul>`;
+        })
+   .join('');
+   return refs.countryInfo.insertAdjacentHTML('beforeend', markup);
+    }
+
+    function resetMarkup(element) {
+        element.innerHTML = '';
+      }
