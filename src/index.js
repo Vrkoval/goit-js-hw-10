@@ -16,7 +16,7 @@ refs.searchBox.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY)
 
 function searchCountry(event) {
   
-    let searchingCountry = event.target.value.trim();
+    const searchingCountry = event.target.value.trim();
     if (!searchingCountry) {
         resetMarkup(refs.listCountries);
         resetMarkup(refs.countryInfo);
