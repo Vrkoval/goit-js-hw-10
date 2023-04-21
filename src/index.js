@@ -16,13 +16,13 @@ refs.searchBox.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY)
 
 function searchCountry(event) {
   
-    const searchingCountry = event.target.value.trim();
-    if (!searchingCountry) {
+    const countrySearchByLetters = event.target.value.trim();
+    if (!countrySearchByLetters) {
         resetMarkup(refs.listCountries);
         resetMarkup(refs.countryInfo);
         return;
     };
-    fetchCountries(searchingCountry)
+    fetchCountries(countrySearchByLetters)
         .then(country => {
             if (country.length > 10) {
                  Notify.info("Too many matches found. Please enter a more specific name.");
